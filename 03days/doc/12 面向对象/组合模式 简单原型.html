@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        };
+
+        // 这样写，就需要重新改写一下constructor
+        Person.prototype = {
+            // constructor: Person, // 但是这样改写，就会导致这个constructor是可以枚举的
+            showName: function() {
+                console.log(this.name);
+            },
+            showAge: function() {
+                console.log(this.age);
+            }
+        };
+
+        // 利用Object.defineProperty()，就可以设置constructor不可以被枚举
+        Object.defineProperty(Person.prototype, 'constructor', {
+            enumerable: false,
+            value: Person
+        });
+
+        var p1 = new Person('小王', 3);
+        console.log(p1);
+        console.log(p1.constructor);
+        // 枚举
+        for (var attr in p1) {
+            console.log(attr);
+        };
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

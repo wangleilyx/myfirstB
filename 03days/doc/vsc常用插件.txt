@@ -1,0 +1,42 @@
+Live Server
+一个服务器插件
+
+View In Browser
+预览页面（ctrl+F1）
+
+vscode-icons
+侧栏的图标，对于一个有视觉强迫症的人是必须要的
+
+HTML Snippets
+支持HTML5的标签提示
+
+HTML Snippets
+css自动补齐
+
+JS-CSS-HTML Formatter
+格式化
+
+jQuery Code Snippets
+jquery 自动提示
+
+Path Autocomplete
+路径自动补齐
+
+Npm Intellisense
+npm包代码提示
+
+ESLint
+检测JS必备
+
+Debugger for Chrome
+方便调试
+
+Auto Rename Tag
+自动同步修改标签
+
+Bootstrap 3 Snippets
+bootstrap必备
+
+Vue 2 Snippets
+vue必备
+

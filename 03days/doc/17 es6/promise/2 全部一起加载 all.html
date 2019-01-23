@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let imgs = [
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527252256191&di=7b25587cff2e776e89552261e850e286&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201504%2F12%2F20150412H1301_ZH4Mw.jpeg',
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527252256190&di=b1746bacd6c437c00df60858c341a083&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201504%2F12%2F20150412H5248_yTPMx.jpeg',
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527252256190&di=c5d4e0b24bc28aff9972391241f60459&imgtype=0&src=http%3A%2F%2Fpic.qqtn.com%2Fup%2F2017-12%2F2017120610233753434.jpg'
+        ];
+
+        function loadImg(url) {
+            return new Promise((resolve, reject) => {
+                let img = new Image();
+                img.src = url;
+                img.onload = function() {
+                    resolve(this);
+                }
+                img.onerror = function() {
+                    reject(new Error('图片加载失败：' + url));
+                }
+            })
+        }
+
+        // 测试loadImg函数
+        // loadImg(imgs[0]).then(function(img) {
+        //     document.body.appendChild(img);
+        // }).catch(function(err) {
+        //     throw err;
+        // });
+
+        let imgAll = Promise.all([loadImg(imgs[0]), loadImg(imgs[1]), loadImg(imgs[2])]);
+        imgAll.then(function(arr) {
+            arr.map(img => document.body.appendChild(img));
+        }).catch(function(err) {
+            throw err;
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

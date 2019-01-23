@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        // 返回这个数据的类型
+        function isType(obj) {
+            return Object.prototype.toString.call(obj).slice(8, -1);
+        }
+
+
+        var n; // [object Undefined] 不兼容IE8及以下，推荐使用typeof来判断。
+        var nu = null; // [object Null] 不兼容IE8及以下。推荐使用nu === null
+
+        var num = 3; // [object Number]，推荐使用typeof来判断。
+        var str = 'a'; // [object String]，推荐使用typeof来判断。
+        var on = true; // [object Boolean]，推荐使用typeof来判断。
+
+        var arr = []; // [object Array]
+        var fn = function() {}; // [object Function]，推荐使用typeof来判断。
+        var obj = new Object(); // [object Object]
+
+        var re = new RegExp(); // [object RegExp]
+        var date = new Date(); // [object Date]
+        var error = new Error(); // [object Error]
+
+        console.log(isType(error));
+        // 注意：这个方法也可以用于arguments和dom元素
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
